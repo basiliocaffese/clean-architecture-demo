@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using AutoMoq;
+﻿using AutoMoq;
 using CleanArchitecture.Application.Customers.Queries.GetCustomerList;
 using NUnit.Framework;
+using System.Collections.Generic;
 
 namespace CleanArchitecture.Service.Customers
 {
@@ -18,7 +15,6 @@ namespace CleanArchitecture.Service.Customers
         public void SetUp()
         {
             _mocker = new AutoMoqer();
-
             _controller = _mocker.Create<CustomersController>();
         }
 
@@ -33,8 +29,7 @@ namespace CleanArchitecture.Service.Customers
 
             var results = _controller.Get();
 
-            Assert.That(results,
-                Contains.Item(customer));
+            Assert.That(results, Contains.Item(customer));
         }
     }
 }

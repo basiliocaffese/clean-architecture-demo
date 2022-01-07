@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace CleanArchitecture.Domain.Products
 {
@@ -13,7 +8,6 @@ namespace CleanArchitecture.Domain.Products
         private readonly Product _product;
         private const int Id = 1;
         private const string Name = "Test";
-
 
         public ProductTests()
         {
@@ -34,8 +28,7 @@ namespace CleanArchitecture.Domain.Products
         {
             _product.Name = Name;
 
-            Assert.That(_product.Name,
-                Is.EqualTo(Name));
+            Assert.That(_product.Name, Is.EqualTo(Name));
         }
     }
 }

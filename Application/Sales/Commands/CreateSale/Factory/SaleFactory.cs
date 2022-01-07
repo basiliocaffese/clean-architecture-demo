@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using CleanArchitecture.Domain.Customers;
+﻿using CleanArchitecture.Domain.Customers;
 using CleanArchitecture.Domain.Employees;
 using CleanArchitecture.Domain.Products;
 using CleanArchitecture.Domain.Sales;
+using System;
 
 namespace CleanArchitecture.Application.Sales.Commands.CreateSale.Factory
 {
@@ -12,15 +10,16 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale.Factory
     {
         public Sale Create(DateTime date, Customer customer, Employee employee, Product product, int quantity)
         {
-            var sale = new Sale();
+            var sale = new Sale
+            {
+                Date = date,
 
-            sale.Date = date;
+                Customer = customer,
 
-            sale.Customer = customer;
+                Employee = employee,
 
-            sale.Employee = employee;
-
-            sale.Product = product;
+                Product = product
+            };
 
             sale.UnitPrice = sale.Product.Price;
 

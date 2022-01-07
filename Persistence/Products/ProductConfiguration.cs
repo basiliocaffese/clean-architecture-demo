@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using CleanArchitecture.Domain.Products;
 using System.Data.Entity.ModelConfiguration;
-using System.Linq;
-using CleanArchitecture.Domain.Products;
 
 namespace CleanArchitecture.Persistence.Products
 {
-    public class ProductConfiguration
-           : EntityTypeConfiguration<Product>
+    public class ProductConfiguration : EntityTypeConfiguration<Product>
     {
         public ProductConfiguration()
         {

@@ -1,12 +1,10 @@
-﻿using System;
+﻿using CleanArchitecture.Application.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
-using CleanArchitecture.Application.Interfaces;
 
 namespace CleanArchitecture.Application.Sales.Queries.GetSalesList
 {
-    public class GetSalesListQuery 
-        : IGetSalesListQuery
+    public class GetSalesListQuery : IGetSalesListQuery
     {
         private readonly IDatabaseService _database;
 
@@ -20,7 +18,7 @@ namespace CleanArchitecture.Application.Sales.Queries.GetSalesList
             var sales = _database.Sales
                 .Select(p => new SalesListItemModel()
                 {
-                    Id = p.Id, 
+                    Id = p.Id,
                     Date = p.Date,
                     CustomerName = p.Customer.Name,
                     EmployeeName = p.Employee.Name,

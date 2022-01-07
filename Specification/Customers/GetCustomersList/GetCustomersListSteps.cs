@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using CleanArchitecture.Application.Customers.Queries.GetCustomerList;
+﻿using CleanArchitecture.Application.Customers.Queries.GetCustomerList;
 using CleanArchitecture.Specification.Common;
 using NUnit.Framework;
+using System.Collections.Generic;
+using System.Linq;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 
@@ -23,12 +22,11 @@ namespace CleanArchitecture.Specification.Customers.GetCustomersList
         [When(@"I request a list of customers")]
         public void WhenIRequestAListOfCustomers()
         {
-            var query = _context.Container
-                .GetInstance<GetCustomersListQuery>();
+            var query = _context.Container.GetInstance<GetCustomersListQuery>();
 
             _results = query.Execute();
         }
-        
+
         [Then(@"the following customers should be returned:")]
         public void ThenTheFollowingCustomersShouldBeReturned(Table table)
         {
@@ -40,11 +38,9 @@ namespace CleanArchitecture.Specification.Customers.GetCustomersList
 
                 var result = _results[i];
 
-                Assert.That(result.Id,
-                    Is.EqualTo(model.Id));
+                Assert.That(result.Id, Is.EqualTo(model.Id));
 
-                Assert.That(result.Name,
-                    Is.EqualTo(model.Name));
+                Assert.That(result.Name, Is.EqualTo(model.Name));
             }
         }
     }

@@ -25,8 +25,7 @@ namespace CleanArchitecture.Domain.Customers
         {
             _customer.Id = Id;
 
-            Assert.That(_customer.Id, 
-                Is.EqualTo(Id));
+            Assert.That(_customer.Id, Is.EqualTo(Id));
         }
 
         [Test]
@@ -34,8 +33,7 @@ namespace CleanArchitecture.Domain.Customers
         {
             _customer.Name = Name;
 
-            Assert.That(_customer.Name, 
-                Is.EqualTo(Name));
+            Assert.That(_customer.Name, Is.EqualTo(Name));
         }
     }
 }

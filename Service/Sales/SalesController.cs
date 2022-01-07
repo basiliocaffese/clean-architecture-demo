@@ -1,12 +1,10 @@
-﻿using System;
+﻿using CleanArchitecture.Application.Sales.Commands.CreateSale;
+using CleanArchitecture.Application.Sales.Queries.GetSaleDetail;
+using CleanArchitecture.Application.Sales.Queries.GetSalesList;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using CleanArchitecture.Application.Sales.Commands.CreateSale;
-using CleanArchitecture.Application.Sales.Queries.GetSaleDetail;
-using CleanArchitecture.Application.Sales.Queries.GetSalesList;
 
 namespace CleanArchitecture.Service.Sales
 {
@@ -16,10 +14,9 @@ namespace CleanArchitecture.Service.Sales
         private readonly IGetSaleDetailQuery _detailQuery;
         private readonly ICreateSaleCommand _createCommand;
 
-        public SalesController(
-            IGetSalesListQuery listQuery,
-            IGetSaleDetailQuery detailQuery,
-            ICreateSaleCommand createCommand)
+        public SalesController(IGetSalesListQuery listQuery,
+                               IGetSaleDetailQuery detailQuery,
+                               ICreateSaleCommand createCommand)
         {
             _listQuery = listQuery;
             _detailQuery = detailQuery;

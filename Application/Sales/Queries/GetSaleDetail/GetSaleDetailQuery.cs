@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using CleanArchitecture.Application.Interfaces;
 using System.Linq;
-using CleanArchitecture.Application.Interfaces;
 
 namespace CleanArchitecture.Application.Sales.Queries.GetSaleDetail
 {
-    public class GetSaleDetailQuery
-        : IGetSaleDetailQuery
+    public class GetSaleDetailQuery : IGetSaleDetailQuery
     {
         private readonly IDatabaseService _database;
 
@@ -21,7 +18,7 @@ namespace CleanArchitecture.Application.Sales.Queries.GetSaleDetail
                 .Where(p => p.Id == saleId)
                 .Select(p => new SaleDetailModel()
                 {
-                    Id = p.Id, 
+                    Id = p.Id,
                     Date = p.Date,
                     CustomerName = p.Customer.Name,
                     EmployeeName = p.Employee.Name,

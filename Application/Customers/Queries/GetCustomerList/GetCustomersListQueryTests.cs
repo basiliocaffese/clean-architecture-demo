@@ -13,7 +13,7 @@ namespace CleanArchitecture.Application.Customers.Queries.GetCustomerList
     [TestFixture]
     public class GetCustomersListQueryTests
     {
-        private GetCustomersListQuery _query;
+        private GetCustomersListQuery query;
         private AutoMoqer _mocker;
         private Customer _customer;
 
@@ -38,13 +38,13 @@ namespace CleanArchitecture.Application.Customers.Queries.GetCustomerList
                 .Setup(p => p.Customers)
                 .Returns(_mocker.GetMock<IDbSet<Customer>>().Object);
 
-            _query = _mocker.Create<GetCustomersListQuery>();
+            query = _mocker.Create<GetCustomersListQuery>();
         }
 
         [Test]
         public void TestExecuteShouldReturnListOfCustomers()
         {
-            var results = _query.Execute();
+            var results = query.Execute();
 
             var result = results.Single();
 

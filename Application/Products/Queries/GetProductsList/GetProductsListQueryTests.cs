@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using AutoMoq;
+﻿using AutoMoq;
 using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Common.Mocks;
 using CleanArchitecture.Domain.Products;
 using NUnit.Framework;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 
 namespace CleanArchitecture.Application.Products.Queries.GetProductsList
 {
@@ -31,8 +30,7 @@ namespace CleanArchitecture.Application.Products.Queries.GetProductsList
                 Name = Name
             };
 
-            _mocker.GetMock<IDbSet<Product>>()
-                .SetUpDbSet(new List<Product> { _product });
+            _mocker.GetMock<IDbSet<Product>>().SetUpDbSet(new List<Product> { _product });
 
             _mocker.GetMock<IDatabaseService>()
                 .Setup(p => p.Products)

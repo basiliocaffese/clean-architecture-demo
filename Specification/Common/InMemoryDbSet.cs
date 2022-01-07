@@ -1,16 +1,15 @@
-﻿using System;
+﻿using CleanArchitecture.Domain.Common;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using CleanArchitecture.Domain.Common;
 
 namespace CleanArchitecture.Specification.Common
 {
-    public class InMemoryDbSet<T> 
-        : IDbSet<T> where T : class
+    public class InMemoryDbSet<T> : IDbSet<T> where T : class
     {
         private readonly HashSet<T> _set;
         private readonly IQueryable<T> _queryableSet;
@@ -37,7 +36,6 @@ namespace CleanArchitecture.Specification.Common
 
         public InMemoryDbSet() : this(Enumerable.Empty<T>())
         {
-
         }
 
         private InMemoryDbSet(IEnumerable<T> entities)
@@ -74,7 +72,7 @@ namespace CleanArchitecture.Specification.Common
 
         public T Find(params object[] keyValues)
         {
-            return _set.FirstOrDefault(p => ((IEntity) p).Id == (int) keyValues[0]);
+            return _set.FirstOrDefault(p => ((IEntity)p).Id == (int)keyValues[0]);
         }
 
         public IEnumerator<T> GetEnumerator()

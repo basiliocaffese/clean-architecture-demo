@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using CleanArchitecture.Domain.Customers;
+﻿using CleanArchitecture.Domain.Customers;
 using CleanArchitecture.Domain.Employees;
 using CleanArchitecture.Domain.Products;
 using CleanArchitecture.Domain.Sales;
+using System;
+using System.Data.Entity;
+using System.Linq;
 
 namespace CleanArchitecture.Persistence
 {
-    public class DatabaseInitializer 
-        : CreateDatabaseIfNotExists<DatabaseService>
+    public class DatabaseInitializer : CreateDatabaseIfNotExists<DatabaseService>
     {
         protected override void Seed(DatabaseService database)
         {
@@ -21,7 +19,7 @@ namespace CleanArchitecture.Persistence
             CreateEmployees(database);
 
             CreateProducts(database);
-            
+
             CreateSales(database);
         }
 

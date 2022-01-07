@@ -1,24 +1,18 @@
-﻿using System;
-using System.Linq;
-using CleanArchitecture.Application.Interfaces;
+﻿using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Application.Sales.Commands.CreateSale.Factory;
 using CleanArchitecture.Common.Dates;
+using System.Linq;
 
 namespace CleanArchitecture.Application.Sales.Commands.CreateSale
 {
-    public class CreateSaleCommand
-        : ICreateSaleCommand
+    public class CreateSaleCommand : ICreateSaleCommand
     {
         private readonly IDateService _dateService;
         private readonly IDatabaseService _database;
         private readonly ISaleFactory _factory;
         private readonly IInventoryService _inventory;
 
-        public CreateSaleCommand(
-            IDateService dateService,
-            IDatabaseService database,
-            ISaleFactory factory,
-            IInventoryService inventory)
+        public CreateSaleCommand(IDateService dateService, IDatabaseService database, ISaleFactory factory, IInventoryService inventory)
         {
             _dateService = dateService;
             _database = database;
@@ -41,12 +35,7 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale
 
             var quantity = model.Quantity;
 
-            var sale = _factory.Create(
-                date,
-                customer, 
-                employee, 
-                product, 
-                quantity);
+            var sale = _factory.Create(date, customer, employee, product, quantity);
 
             _database.Sales.Add(sale);
 
